@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="min_height_button">30dp</dimen>
+    <dimen name="min_width_button">125dp</dimen>
+    <dimen name="text_size_button">18dp</dimen>
+
+    <dimen name="min_height_text">30dp</dimen>
+    <dimen name="min_width_text">125dp</dimen>
+    <dimen name="text_size_text">18dp</dimen>
+</resources>

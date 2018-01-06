@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartCrops</string>
+    <string name="login_button">Ingresar</string>
+    <string name="email">Correo Electronico</string>
+    <string name="password">Contraseña</string>
+    <string name="register">Registrarse</string>
+    <string name="forgot">¿Olvido Contraseña ?</string>
+    <string name="empty_login">"Campos vacios"</string>
+    <string name="error_login">"Usuario o Contraseña Incorrecta"</string>
+    <string name="bar_search">Buscar</string>
+    <string name="bar_info">Información</string>
+    <string name="bar_logOut"> Salir</string>
+    <string name="username">Nombre de Usuario</string>
+    <string name="confirm_password">Confirmar Contraseña</string>
+    <string name="register_button">Crear Cuenta</string>
+    <string name="verify_email">Por favor verificar correo electronico</string>
+    <string name="password_match">Contraseñas no coinciden</string>
+    <string name="new_user">Usuario Creado Con Exito.</string>
+    <string name="fall_create_user">Usuario No Creado</string>
+</resources>

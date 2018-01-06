@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <import type="android.view.View" alias="view"></import>
+        <variable
+            name="loginViewModel"
+            type="com.aplicaciones.destroyer.smartcrops.viewModel.ViewModelLogin"></variable>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.aplicaciones.destroyer.smartcrops.view.activitys.LoginActivity">
+
+        <Button
+            android:id="@+id/loginButton"
+            style="@style/LoginButton"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/login_button"
+            android:onClick="@{(view) -> loginViewModel.login(view)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_field" />
+
+        <EditText
+            android:id="@+id/email_field"
+            style="@style/LoginText"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:text="@={loginViewModel.email}"
+            app:layout_constraintBottom_toTopOf="@+id/password_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/password_field"
+            style="@style/LoginText"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:text="@={loginViewModel.password}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35000002" />
+
+        <TextView
+            android:id="@+id/forgotPassword"
+            style="@style/Text"
+            android:layout_marginBottom="45dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/forgot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/register_button"
+            style="@style/LoginButton"
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="32dp"
+            android:text="@string/register"
+            android:onClick="@{(view) -> loginViewModel.registerActivity(view)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

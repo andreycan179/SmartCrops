@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "514008290775",
+    "firebase_url": "https://smartcrops-1029a.firebaseio.com",
+    "project_id": "smartcrops-1029a",
+    "storage_bucket": "smartcrops-1029a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514008290775:android:5a4b82b90aa9e12f",
+        "android_client_info": {
+          "package_name": "com.aplicaciones.destroyer.smartcrops"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514008290775-35vvuqkgm19gh89acfneosp30377r3g8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaGHCrjTUlLa_NK7P8Ks4gVg_45gqoCuc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">SmartCrops</string>
+    <string name="login_button">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="forgot">Forgot Password ?</string>
+    <string name="empty_login">"Empty Fields "</string>
+    <string name="error_login">"User or password wrong"</string>
+    <string name="bar_search">Search</string>
+    <string name="bar_info">Info</string>
+    <string name="bar_logOut"> Log Out</string>
+    <string name="username">UserName</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register_button">Create an account</string>
+    <string name="verify_email">Please Verify Email</string>
+    <string name="password_match">Passwords do not match</string>
+    <string name="new_user">User Created Succesful</string>
+    <string name="fall_create_user">User does not create</string>
+
+</resources>
