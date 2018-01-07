@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
     <data>
-        <import type="android.view.View" alias="view"></import>
+        <import type="android.view.View" alias="view"/>
         <variable
             name="loginViewModel"
-            type="com.aplicaciones.destroyer.smartcrops.viewModel.ViewModelLogin"></variable>
+            type="com.aplicaciones.destroyer.smartcrops.viewModel.LoginViewModel"/>
     </data>
 
     <android.support.constraint.ConstraintLayout

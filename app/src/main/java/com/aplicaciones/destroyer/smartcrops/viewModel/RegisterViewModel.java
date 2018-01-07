@@ -22,7 +22,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
  * Created by Destroyer on 5/01/2018.
  */
 
-public class ViewModelRegister {
+public class RegisterViewModel {
 
     public ObservableField<String> username = new ObservableField<>();
     public ObservableField<String> email = new ObservableField<>();
@@ -31,7 +31,7 @@ public class ViewModelRegister {
 
     private  FirebaseAuth mAuth;
 
-    public ViewModelRegister() {
+    public RegisterViewModel() {
         mAuth= FirebaseAuth.getInstance();
     }
 

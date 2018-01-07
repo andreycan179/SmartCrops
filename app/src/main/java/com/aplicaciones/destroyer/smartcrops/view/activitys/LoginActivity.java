@@ -8,19 +8,19 @@ import android.util.Log;
 import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.databinding.ActivityLoginBinding;
 import com.aplicaciones.destroyer.smartcrops.model.User;
-import com.aplicaciones.destroyer.smartcrops.viewModel.ViewModelLogin;
+import com.aplicaciones.destroyer.smartcrops.viewModel.LoginViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private  ViewModelLogin login;
+    private LoginViewModel login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityLoginBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_login);
-        login= new ViewModelLogin();
+        login= new LoginViewModel();
         binding.setLoginViewModel(login);
 
 

@@ -7,7 +7,7 @@
         <import type="android.view.View" alias="view"></import>
         <variable
             name="registerViewModel"
-            type="com.aplicaciones.destroyer.smartcrops.viewModel.ViewModelRegister"/>
+            type="com.aplicaciones.destroyer.smartcrops.viewModel.RegisterViewModel"/>
     </data>
 
 <android.support.constraint.ConstraintLayout

@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.databinding.ActivityResetPasswordBinding;
-import com.aplicaciones.destroyer.smartcrops.viewModel.ViewModelResetPassword;
+import com.aplicaciones.destroyer.smartcrops.viewModel.ResetPasswordViewModel;
 
 public class ResetPasswordActivity extends AppCompatActivity {
 
@@ -14,7 +14,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityResetPasswordBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_reset_password);
-        ViewModelResetPassword password = new ViewModelResetPassword();
+        ResetPasswordViewModel password = new ResetPasswordViewModel();
         binding.setResetViewModel(password);
     }
 }

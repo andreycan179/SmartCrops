@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.databinding.ActivityRegisterBinding;
-import com.aplicaciones.destroyer.smartcrops.viewModel.ViewModelRegister;
+import com.aplicaciones.destroyer.smartcrops.viewModel.RegisterViewModel;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -14,7 +14,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityRegisterBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_register);
-        ViewModelRegister register = new ViewModelRegister();
+        RegisterViewModel register = new RegisterViewModel();
         binding.setRegisterViewModel(register);
     }
 }

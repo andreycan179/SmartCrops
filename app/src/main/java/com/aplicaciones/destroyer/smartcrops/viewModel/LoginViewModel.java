@@ -27,12 +27,12 @@ import com.google.firebase.auth.FirebaseAuth;
  * Created by Destroyer on 3/01/2018.
  */
 
-public class ViewModelLogin extends BaseObservable {
+public class LoginViewModel extends BaseObservable {
 
     private User user;
     private DataBase baseData;
 
-    public ViewModelLogin(){
+    public LoginViewModel(){
         user=new User();
         baseData= new DataFireBase();
     }
@@ -67,8 +67,8 @@ public class ViewModelLogin extends BaseObservable {
             toast.show();
         }else {
             Thread t = new Thread( new LoginThread(context));
-
             t.start();
+
         }
 
 

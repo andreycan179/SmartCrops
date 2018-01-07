@@ -16,12 +16,12 @@ import com.google.firebase.auth.FirebaseAuth;
  * Created by Destroyer on 6/01/2018.
  */
 
-public class ViewModelResetPassword {
+public class ResetPasswordViewModel {
 
     public ObservableField<String> email;
     private FirebaseAuth auth ;
 
-    public ViewModelResetPassword(){
+    public ResetPasswordViewModel(){
         email=new ObservableField<>();
         auth= FirebaseAuth.getInstance();
     }

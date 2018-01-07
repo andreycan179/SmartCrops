@@ -9,8 +9,8 @@ import com.aplicaciones.destroyer.smartcrops.model.User;
  */
 
 public interface DataBase {
-    public void createUser();
-    public void readUser();
+    public void create();
+    public void read();
     public void update();
     public void delete();
     public boolean login(User usuario);

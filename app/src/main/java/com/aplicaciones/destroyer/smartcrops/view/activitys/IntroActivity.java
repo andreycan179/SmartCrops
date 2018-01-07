@@ -1,6 +1,7 @@
 package com.aplicaciones.destroyer.smartcrops.view.activitys;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,17 +9,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.aplicaciones.destroyer.smartcrops.R;
+import com.aplicaciones.destroyer.smartcrops.databinding.ActivityIntroBinding;
 import com.aplicaciones.destroyer.smartcrops.model.User;
-import com.google.firebase.auth.FirebaseAuth;
+import com.aplicaciones.destroyer.smartcrops.viewModel.IntroViewModel;
+
 
 public class IntroActivity extends AppCompatActivity {
+
+    public ActivityIntroBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intro);
         Intent intent = getIntent();
         User user = (User) intent.getSerializableExtra("user");
+        binding= DataBindingUtil.setContentView(this, R.layout.activity_intro);
+        IntroViewModel intro = new IntroViewModel(this);
+        binding.setIntroViewModel(intro);
     }
 
     @Override
@@ -47,8 +54,6 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     public  void  goLoginActivity(){
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        binding.getIntroViewModel().logOut();
     }
 }
