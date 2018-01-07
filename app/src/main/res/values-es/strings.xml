@@ -16,6 +16,12 @@
     <string name="register_button">Crear Cuenta</string>
     <string name="verify_email">Por favor verificar correo electronico</string>
     <string name="password_match">Contraseñas no coinciden</string>
-    <string name="new_user">Usuario Creado Con Exito.</string>
+    <string name="new_user">Usuario Creado Con Éxito.</string>
     <string name="fall_create_user">Usuario No Creado</string>
+    <string name="forgot_password">Olvido su contraseña</string>
+    <string name="text_forgot_password">Por favor ingrese su correo electronico para recuperar su contraseña.
+    Nosotros le enviaremos un email con un enlace para restablecer esta.</string>
+    <string name="send_email">Enviar</string>
+    <string name="email_send_successful">Correo electronico enviado</string>
+    <string name="email_send_unsuccessful">Correo electronico no enviado</string>
 </resources>

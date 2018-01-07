@@ -20,6 +20,7 @@ import com.aplicaciones.destroyer.smartcrops.model.User;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.IntroActivity;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.LoginActivity;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.RegisterActivity;
+import com.aplicaciones.destroyer.smartcrops.view.activitys.ResetPasswordActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**
@@ -84,11 +85,16 @@ public class ViewModelLogin extends BaseObservable {
         view.getContext().startActivity(intent);
     }
 
+    public void resetActivity(View view){
+        Intent intent = new Intent(view.getContext(), ResetPasswordActivity.class);
+        view.getContext().startActivity(intent);
+    }
+
     public class  LoginThread implements Runnable{
 
         private Context context;
 
-        public  LoginThread(Context context){
+        private   LoginThread(Context context){
             this.context=context;
         }
 

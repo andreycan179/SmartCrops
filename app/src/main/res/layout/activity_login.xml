@@ -63,7 +63,10 @@
             style="@style/Text"
             android:layout_marginBottom="45dp"
             android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:text="@string/forgot"
+            android:clickable="true"
+            android:onClick="@{(view)-> loginViewModel.resetActivity(view)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -72,6 +75,7 @@
             style="@style/LoginButton"
             android:layout_marginBottom="32dp"
             android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:text="@string/register"
             android:onClick="@{(view) -> loginViewModel.registerActivity(view)}"
             app:layout_constraintBottom_toBottomOf="parent"

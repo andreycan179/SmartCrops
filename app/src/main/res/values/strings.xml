@@ -15,7 +15,13 @@
     <string name="register_button">Create an account</string>
     <string name="verify_email">Please Verify Email</string>
     <string name="password_match">Passwords do not match</string>
-    <string name="new_user">User Created Succesful</string>
+    <string name="new_user">User Created Successful</string>
     <string name="fall_create_user">User does not create</string>
+    <string name="forgot_password">Forgot your password</string>
+    <string name="text_forgot_password">Please enter your email address to retrieve your password.
+    We will email you a link to reset it.</string>
+    <string name="send_email">Send</string>
+    <string name="email_send_successful">Email sended successful</string>
+    <string name="email_send_unsuccessful">Email did not send</string>
 
 </resources>
