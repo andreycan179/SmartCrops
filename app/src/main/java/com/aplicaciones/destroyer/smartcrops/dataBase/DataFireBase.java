@@ -71,6 +71,7 @@ public class DataFireBase implements DataBase {
         @Override
         public void onComplete(@NonNull Task task) {
             if (task.isSuccessful()){
+                user.userName = auth.getCurrentUser().getDisplayName();
                 Log.d("Login", "Successful");
 
             }else {

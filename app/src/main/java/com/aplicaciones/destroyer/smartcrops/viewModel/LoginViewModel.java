@@ -101,7 +101,7 @@ public class LoginViewModel extends BaseObservable {
         @Override
         public void run() {
             if(baseData.login(user)){
-                user.userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+                Log.d("Username", user.userName);
                 introActivity(context, user);
                 setEmail(null);
                 setPassword(null);
