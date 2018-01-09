@@ -12,21 +12,27 @@ import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.databinding.ActivityIntroBinding;
 import com.aplicaciones.destroyer.smartcrops.model.User;
 import com.aplicaciones.destroyer.smartcrops.viewModel.IntroViewModel;
+import com.google.android.gms.maps.SupportMapFragment;
 
 
 public class IntroActivity extends AppCompatActivity {
 
-    public ActivityIntroBinding binding;
+    private ActivityIntroBinding binding;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        User user = (User) intent.getSerializableExtra("user");
+        user = (User) intent.getSerializableExtra("user");
         binding= DataBindingUtil.setContentView(this, R.layout.activity_intro);
-        IntroViewModel intro = new IntroViewModel(this);
+        IntroViewModel intro = new IntroViewModel(this, user);
         binding.setIntroViewModel(intro);
+        SupportMapFragment s= (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        s.getMapAsync(intro);
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,4 +62,5 @@ public class IntroActivity extends AppCompatActivity {
     public  void  goLoginActivity(){
         binding.getIntroViewModel().logOut();
     }
+
 }

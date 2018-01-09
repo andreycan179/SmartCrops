@@ -24,4 +24,5 @@
     <string name="send_email">Enviar</string>
     <string name="email_send_successful">Correo electronico enviado</string>
     <string name="email_send_unsuccessful">Correo electronico no enviado</string>
+    <string name="greeting">Hola </string>
 </resources>

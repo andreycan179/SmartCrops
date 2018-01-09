@@ -23,5 +23,6 @@
     <string name="send_email">Send</string>
     <string name="email_send_successful">Email sended successful</string>
     <string name="email_send_unsuccessful">Email did not send</string>
+    <string name="greeting">"Hello %1$s"</string>
 
 </resources>
