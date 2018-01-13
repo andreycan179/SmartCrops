@@ -1,3 +1,4 @@
+
 <resources>
     <string name="app_name">SmartCrops</string>
     <string name="login_button">Login</string>
@@ -24,5 +25,5 @@
     <string name="email_send_successful">Email sended successful</string>
     <string name="email_send_unsuccessful">Email did not send</string>
     <string name="greeting">"Hello %1$s"</string>
-
+    <string name="map_not_load">The Map has not been loaded yet</string>
 </resources>

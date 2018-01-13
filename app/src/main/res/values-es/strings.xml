@@ -24,5 +24,6 @@
     <string name="send_email">Enviar</string>
     <string name="email_send_successful">Correo electronico enviado</string>
     <string name="email_send_unsuccessful">Correo electronico no enviado</string>
-    <string name="greeting">Hola </string>
+    <string name="greeting">"Hola %1$s"</string>
+    <string name="map_not_load">El mapa no ha sido cargado aun.</string>
 </resources>
