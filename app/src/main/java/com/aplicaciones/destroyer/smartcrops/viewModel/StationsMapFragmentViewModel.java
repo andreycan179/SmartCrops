@@ -1,12 +1,14 @@
 package com.aplicaciones.destroyer.smartcrops.viewModel;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 
 import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.dataBase.DataBase;
 import com.aplicaciones.destroyer.smartcrops.dataBase.DataFireBase;
 import com.aplicaciones.destroyer.smartcrops.model.Station;
+import com.aplicaciones.destroyer.smartcrops.view.activitys.SpecificIrrigationActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -79,14 +81,30 @@ public class StationsMapFragmentViewModel implements OnMapReadyCallback{
             if (station.getKind().equals("irrigation")){
                  markerOptions = new MarkerOptions().position(position).title(station.getKind().toUpperCase()).
                         icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_irrigation_map));
+
             }else {
                  markerOptions = new MarkerOptions().position(position).title(station.getKind().toUpperCase()).
                         icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_measure_map));
             }
 
             Marker marker = googleMap.addMarker(markerOptions);
+            marker.setTag(station);
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position,17));
         }
 
+        googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+
+                if(marker.getTitle().equalsIgnoreCase("irrigation")){
+                    Station station = (Station) marker.getTag();
+                    Intent intent = new Intent(mapView.getContext(), SpecificIrrigationActivity.class);
+                    intent.putExtra("station",station);
+                    mapView.getContext().startActivity(intent);
+                }
+
+                return false;
+            }
+        });
     }
 }

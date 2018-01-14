@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -21,17 +20,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activitys.IntroActivity" />
+        <activity
+            android:name=".view.activitys.IntroActivity"
+            android:launchMode="singleTop" />
         <activity
             android:name=".view.activitys.RegisterActivity"
             android:parentActivityName=".view.activitys.LoginActivity" />
         <activity
             android:name=".view.activitys.ResetPasswordActivity"
             android:parentActivityName=".view.activitys.LoginActivity" />
-        <activity android:name=".view.activitys.MeasureActivity"
-            />
-        <activity android:name=".view.activitys.IrrigationActivity"
-            />
+        <activity
+            android:name=".view.activitys.MeasureActivity"
+            android:parentActivityName=".view.activitys.IntroActivity" />
+        <activity
+            android:name=".view.activitys.IrrigationActivity"
+            android:parentActivityName=".view.activitys.IntroActivity" />
+        <activity
+            android:name=".view.activitys.SpecificIrrigationActivity"
+            android:label="@string/title_activity_specific_irrigation"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
