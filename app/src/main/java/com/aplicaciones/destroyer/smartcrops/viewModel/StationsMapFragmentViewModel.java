@@ -72,7 +72,7 @@ public class StationsMapFragmentViewModel implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         for (Station station:stations ) {
             LatLng position = new LatLng( station.getLatitude(), station.getLongitude());
