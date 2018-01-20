@@ -38,21 +38,19 @@ public class DataFireBase implements DataBase {
     }
 
     @Override
-    public List<Station> readStation(String key, String kind) {
+    public List<Station> readStation( String kind) {
 
-        DatabaseReference reference = dataBase.child("Stations");
+        DatabaseReference reference = dataBase.child(auth.getUid()).child("Stations");
         Query query;
 
-        if (key!=null){
-            query = reference.orderByChild("key").equalTo(key);
-        }else {
-            query = reference.orderByChild("kind").equalTo(kind);
-        }
+
+        query = reference.orderByChild("kind").equalTo(kind);
+
 
 
         List<Station> stations = new ArrayList<>();
 
-        query.addListenerForSingleValueEvent(new ReadStationCompleteListener(stations, kind));
+        query.addListenerForSingleValueEvent(new ReadStationCompleteListener(stations));
 
         try {
             synchronized (stations) {
@@ -117,11 +115,10 @@ public class DataFireBase implements DataBase {
     private class ReadStationCompleteListener implements ValueEventListener{
 
         private List<Station> stations;
-        private String kind;
 
-        private ReadStationCompleteListener(List<Station> stations, String kind) {
+
+        private ReadStationCompleteListener(List<Station> stations) {
             this.stations = stations;
-            this.kind = kind;
         }
 
         @Override
@@ -129,10 +126,10 @@ public class DataFireBase implements DataBase {
             Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
 
             while (iterator.hasNext()){
-                Station station = iterator.next().getValue(Station.class);
-                if (station.getKind().equals(kind)){
-                    stations.add(station);
-                }
+                DataSnapshot data =iterator.next();
+                Station station = data.getValue(Station.class);
+                station.setKey(data.getKey());
+                stations.add(station);
             }
             synchronized (stations){
                 stations.notify();

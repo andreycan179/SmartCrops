@@ -34,7 +34,7 @@ public class IrrigationActivity extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                final AdapterIrrigation adapterIrrigation = new AdapterIrrigation(new DataFireBase().readStation(null,"irrigation"));
+                final AdapterIrrigation adapterIrrigation = new AdapterIrrigation(new DataFireBase().readStation("irrigation"));
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

@@ -50,8 +50,8 @@ public class StationsMapFragmentViewModel implements OnMapReadyCallback{
             @Override
             public void run() {
                 DataBase dataBase = new DataFireBase();
-                stations = dataBase.readStation(null, "irrigation");
-                stations.addAll(dataBase.readStation(null,"measure"));
+                stations = dataBase.readStation( "irrigation");
+                stations.addAll(dataBase.readStation("measure"));
                 for (Station station: stations) {
                     Log.d("OutThread", station.getKey()+" "+ station.getKind());
                 }
@@ -72,7 +72,7 @@ public class StationsMapFragmentViewModel implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-        googleMap.setMapType(GoogleMap.MAP_TYPE_);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         for (Station station:stations ) {
             LatLng position = new LatLng( station.getLatitude(), station.getLongitude());
