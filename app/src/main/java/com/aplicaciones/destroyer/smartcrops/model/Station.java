@@ -8,35 +8,35 @@ import java.io.Serializable;
 
 public class Station  implements Serializable{
 
-    private String key;
-    private String kind;
+    private String name;
+    private String function;
     private double latitude;
     private double longitude;
 
     public Station() {
     }
 
-    public Station(String key, String kind, double latitude, double longitude) {
-        this.key = key;
-        this.kind = kind;
+    public Station(String name, String function, double latitude, double longitude) {
+        this.name = name;
+        this.function = function;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public String getKey() {
-        return key;
+    public String getName() {
+        return name;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getKind() {
-        return kind;
+    public String getFunction() {
+        return function;
     }
 
-    public void setKind(String kind) {
-        this.kind = kind;
+    public void setFunction(String function) {
+        this.function = function;
     }
 
     public double getLatitude() {

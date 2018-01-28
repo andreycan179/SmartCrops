@@ -50,10 +50,10 @@ public class StationsMapFragmentViewModel implements OnMapReadyCallback{
             @Override
             public void run() {
                 DataBase dataBase = new DataFireBase();
-                stations = dataBase.readStation( "irrigation");
-                stations.addAll(dataBase.readStation("measure"));
+                stations = dataBase.readStation( "IRRIG_STATION");
+                stations.addAll(dataBase.readStation("SENS_STATION"));
                 for (Station station: stations) {
-                    Log.d("OutThread", station.getKey()+" "+ station.getKind());
+                    Log.d("OutThread", station.getName()+" "+ station.getFunction());
                 }
 
                 ((Activity)mapView.getContext()).runOnUiThread(new Runnable() {
@@ -78,12 +78,12 @@ public class StationsMapFragmentViewModel implements OnMapReadyCallback{
             LatLng position = new LatLng( station.getLatitude(), station.getLongitude());
             MarkerOptions markerOptions;
 
-            if (station.getKind().equals("irrigation")){
-                 markerOptions = new MarkerOptions().position(position).title(station.getKind().toUpperCase()).
+            if (station.getFunction().equals("IRRIG_STATION")){
+                 markerOptions = new MarkerOptions().position(position).title(station.getFunction().toUpperCase()).
                         icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_irrigation_map));
 
             }else {
-                 markerOptions = new MarkerOptions().position(position).title(station.getKind().toUpperCase()).
+                 markerOptions = new MarkerOptions().position(position).title(station.getFunction().toUpperCase()).
                         icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_measure_map));
             }
 
@@ -96,7 +96,7 @@ public class StationsMapFragmentViewModel implements OnMapReadyCallback{
             @Override
             public boolean onMarkerClick(Marker marker) {
 
-                if(marker.getTitle().equalsIgnoreCase("irrigation")){
+                if(marker.getTitle().equalsIgnoreCase("IRRIG_STATION")){
                     Station station = (Station) marker.getTag();
                     Intent intent = new Intent(mapView.getContext(), SpecificIrrigationActivity.class);
                     intent.putExtra("station",station);

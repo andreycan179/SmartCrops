@@ -2,12 +2,16 @@ package com.aplicaciones.destroyer.smartcrops.viewModel;
 
 import android.content.Context;
 import android.databinding.ObservableField;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.aplicaciones.destroyer.smartcrops.R;
+import com.aplicaciones.destroyer.smartcrops.dataBase.DataFireBase;
+import com.aplicaciones.destroyer.smartcrops.view.fragments.LoadFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,20 +31,10 @@ public class ResetPasswordViewModel {
     }
 
     public void resetPassword(View view){
-        final Context context = view.getContext();
+        Context context = view.getContext();
         if (verifyEmail()){
-            auth.sendPasswordResetEmail(email.get())
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                showMessage(context, context.getString(R.string.email_send_successful));
-                            }else {
-                                showMessage(context, context.getString(R.string.email_send_unsuccessful));
-                            }
-                        }
-                    });
-            email.set(null);
+            ResetPasswordAsyncTask reset = new ResetPasswordAsyncTask(context);
+            reset.execute();
         }
         else {
             showMessage(context, context.getString(R.string.verify_email));
@@ -69,4 +63,40 @@ public class ResetPasswordViewModel {
         }
         return  false;
     }
+
+    private  class ResetPasswordAsyncTask extends AsyncTask<Void, Void, Boolean>{
+
+        private Context context;
+        private LoadFragment dialog;
+
+        ResetPasswordAsyncTask(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new LoadFragment();
+            dialog.show(((AppCompatActivity)context).getSupportFragmentManager(),"loadFragment");
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... voids) {
+            DataFireBase base = new DataFireBase();
+            return base.resetPassword(email.get());
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            dialog.dismiss();
+            if (aBoolean){
+                showMessage(context, context.getString(R.string.email_send_successful));
+                email.set(null);
+            }else {
+                showMessage(context, context.getString(R.string.email_send_unsuccessful));
+            }
+        }
+    }
+
 }

@@ -12,10 +12,11 @@ import java.util.List;
  */
 
 public interface DataBase {
-    public void create();
-    public List<Station> readStation( String kind);
-    public void update();
-    public void delete();
-    public boolean login(User usuario);
+     void create();
+     List<Station> readStation( String kind);
+     void update();
+     void delete();
+     boolean login(User usuario);
+     boolean resetPassword(String email);
 
 }

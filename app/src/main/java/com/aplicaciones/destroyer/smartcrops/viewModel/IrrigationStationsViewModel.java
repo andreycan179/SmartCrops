@@ -19,8 +19,8 @@ public class IrrigationStationsViewModel {
         this.station = station;
     }
 
-    public String getKey(){
-        return station.getKey();
+    public String getName(){
+        return station.getName();
     }
 
     public  void specificActivity(View view){

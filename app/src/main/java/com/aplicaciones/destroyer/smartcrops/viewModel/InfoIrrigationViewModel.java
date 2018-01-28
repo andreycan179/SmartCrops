@@ -14,7 +14,7 @@ public class InfoIrrigationViewModel {
         this.station = station;
     }
 
-    public String getKey(){
-        return station.getKey();
+    public String getName(){
+        return station.getName();
     }
 }

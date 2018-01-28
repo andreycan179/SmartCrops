@@ -1,27 +1,27 @@
 package com.aplicaciones.destroyer.smartcrops.viewModel;
 
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.os.Bundle;
-import android.os.Looper;
+import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
-
 import com.android.databinding.library.baseAdapters.BR;
 import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.dataBase.DataBase;
 import com.aplicaciones.destroyer.smartcrops.dataBase.DataFireBase;
 import com.aplicaciones.destroyer.smartcrops.model.User;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.IntroActivity;
-import com.aplicaciones.destroyer.smartcrops.view.activitys.LoginActivity;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.RegisterActivity;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.ResetPasswordActivity;
-import com.google.firebase.auth.FirebaseAuth;
+import com.aplicaciones.destroyer.smartcrops.view.fragments.LoadFragment;
+
 
 /**
  * Created by Destroyer on 3/01/2018.
@@ -59,15 +59,15 @@ public class LoginViewModel extends BaseObservable {
 
     public void login(View view){
 
-        final Context context = view.getContext();
+        Context context = view.getContext();
 
         if (user.email==null || user.password==null){
             Toast toast = Toast.makeText(context, context.getString(R.string.empty_login),Toast.LENGTH_SHORT );
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
         }else {
-            Thread t = new Thread( new LoginThread(context));
-            t.start();
+            LoginAsyncTask loginAsyncTask = new LoginAsyncTask(context);
+            loginAsyncTask.execute();
 
         }
 
@@ -90,29 +90,48 @@ public class LoginViewModel extends BaseObservable {
         view.getContext().startActivity(intent);
     }
 
-    public class  LoginThread implements Runnable{
+    private class LoginAsyncTask extends AsyncTask<Void,Void,Boolean>{
 
         private Context context;
+        private LoadFragment dialog;
 
-        private   LoginThread(Context context){
-            this.context=context;
+        public  LoginAsyncTask(Context context){
+            this.context = context;
         }
 
         @Override
-        public void run() {
-            if(baseData.login(user)){
-                Log.d("Username", user.userName);
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new LoadFragment();
+            dialog.show(((AppCompatActivity)context).getSupportFragmentManager(),"loadFragment");
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... args) {
+            return baseData.login(user);
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+
+            dialog.dismiss();
+
+            if(aBoolean){
+                //Log.d("Username", user.userName);
                 introActivity(context, user);
                 setEmail(null);
                 setPassword(null);
                 Log.d("Call","IntroActivity");
             }else {
-                Looper.prepare();
                 Toast toast = Toast.makeText(context, context.getString(R.string.error_login),Toast.LENGTH_SHORT );
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
-                Looper.loop();
             }
+
+
         }
     }
+
+
 }

@@ -38,13 +38,13 @@ public class DataFireBase implements DataBase {
     }
 
     @Override
-    public List<Station> readStation( String kind) {
+    public List<Station> readStation( String function) {
 
         DatabaseReference reference = dataBase.child(auth.getUid()).child("Stations");
         Query query;
 
 
-        query = reference.orderByChild("kind").equalTo(kind);
+        query = reference.orderByChild("function").equalTo(function);
 
 
 
@@ -89,6 +89,31 @@ public class DataFireBase implements DataBase {
 
     }
 
+    @Override
+    public boolean resetPassword( final String email){
+
+        Task s =auth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        synchronized (email) {
+                            email.notify();
+                        }
+                    }
+                });
+
+        try{
+            synchronized (email){
+                email.wait();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return s.isSuccessful();
+    }
+
+
     private class LoginCompleteListener implements OnCompleteListener{
 
         private User user;
@@ -128,7 +153,7 @@ public class DataFireBase implements DataBase {
             while (iterator.hasNext()){
                 DataSnapshot data =iterator.next();
                 Station station = data.getValue(Station.class);
-                station.setKey(data.getKey());
+                station.setName(data.getKey());
                 stations.add(station);
             }
             synchronized (stations){
