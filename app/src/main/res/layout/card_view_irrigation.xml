@@ -7,7 +7,7 @@
         <import type="android.view.View" alias="view"/>
         <variable
             name="stationViewModel"
-            type="com.aplicaciones.destroyer.smartcrops.viewModel.IrrigationStationsViewModel"/>
+            type="com.aplicaciones.destroyer.smartcrops.viewModel.StationsViewModel"/>
     </data>
 
     <android.support.v7.widget.CardView

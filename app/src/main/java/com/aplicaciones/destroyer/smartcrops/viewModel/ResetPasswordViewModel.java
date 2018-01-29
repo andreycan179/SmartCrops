@@ -3,7 +3,6 @@ package com.aplicaciones.destroyer.smartcrops.viewModel;
 import android.content.Context;
 import android.databinding.ObservableField;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -11,9 +10,7 @@ import android.widget.Toast;
 
 import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.dataBase.DataFireBase;
-import com.aplicaciones.destroyer.smartcrops.view.fragments.LoadFragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.aplicaciones.destroyer.smartcrops.view.fragments.LoadDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**
@@ -67,7 +64,7 @@ public class ResetPasswordViewModel {
     private  class ResetPasswordAsyncTask extends AsyncTask<Void, Void, Boolean>{
 
         private Context context;
-        private LoadFragment dialog;
+        private LoadDialogFragment dialog;
 
         ResetPasswordAsyncTask(Context context) {
             this.context = context;
@@ -76,7 +73,7 @@ public class ResetPasswordViewModel {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            dialog = new LoadFragment();
+            dialog = new LoadDialogFragment();
             dialog.show(((AppCompatActivity)context).getSupportFragmentManager(),"loadFragment");
         }
 

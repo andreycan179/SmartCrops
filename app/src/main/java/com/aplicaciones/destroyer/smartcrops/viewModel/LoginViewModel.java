@@ -20,7 +20,7 @@ import com.aplicaciones.destroyer.smartcrops.model.User;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.IntroActivity;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.RegisterActivity;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.ResetPasswordActivity;
-import com.aplicaciones.destroyer.smartcrops.view.fragments.LoadFragment;
+import com.aplicaciones.destroyer.smartcrops.view.fragments.LoadDialogFragment;
 
 
 /**
@@ -93,7 +93,7 @@ public class LoginViewModel extends BaseObservable {
     private class LoginAsyncTask extends AsyncTask<Void,Void,Boolean>{
 
         private Context context;
-        private LoadFragment dialog;
+        private LoadDialogFragment dialog;
 
         public  LoginAsyncTask(Context context){
             this.context = context;
@@ -102,8 +102,8 @@ public class LoginViewModel extends BaseObservable {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            dialog = new LoadFragment();
-            dialog.show(((AppCompatActivity)context).getSupportFragmentManager(),"loadFragment");
+            dialog = new LoadDialogFragment();
+            dialog.show(((AppCompatActivity)context).getSupportFragmentManager(),"LoadDialogFragment");
         }
 
         @Override

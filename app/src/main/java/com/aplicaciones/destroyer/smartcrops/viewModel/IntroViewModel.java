@@ -10,11 +10,10 @@ import android.view.View;
 
 import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.model.User;
-import com.aplicaciones.destroyer.smartcrops.view.activitys.IrrigationActivity;
+import com.aplicaciones.destroyer.smartcrops.view.activitys.StationsActivity;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.LoginActivity;
 import com.aplicaciones.destroyer.smartcrops.view.activitys.MeasureActivity;
 import com.aplicaciones.destroyer.smartcrops.view.fragments.StationsMapFragment;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -48,14 +47,16 @@ public class IntroViewModel  {
 
     public void irrigationActivity(View view){
 
-        Intent intent = new Intent(context, IrrigationActivity.class);
+        Intent intent = new Intent(context, StationsActivity.class);
+        intent.putExtra("function","IRRIG_STATION");
         context.startActivity(intent);
 
     }
 
     public void measureActivity(View view){
 
-        Intent intent = new Intent(context, MeasureActivity.class);
+        Intent intent = new Intent(context, StationsActivity.class);
+        intent.putExtra("function","SENS_STATION");
         context.startActivity(intent);
 
     }

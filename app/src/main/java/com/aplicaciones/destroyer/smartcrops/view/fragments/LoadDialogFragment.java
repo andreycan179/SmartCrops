@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 
 import com.aplicaciones.destroyer.smartcrops.R;
 
-public class LoadFragment extends DialogFragment{
+public class LoadDialogFragment extends DialogFragment{
 
     @NonNull
     @Override

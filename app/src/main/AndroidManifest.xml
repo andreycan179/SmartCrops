@@ -33,10 +33,10 @@
             android:name=".view.activitys.MeasureActivity"
             android:parentActivityName=".view.activitys.IntroActivity" />
         <activity
-            android:name=".view.activitys.IrrigationActivity"
+            android:name=".view.activitys.StationsActivity"
             android:parentActivityName=".view.activitys.IntroActivity" />
         <activity
-            android:name=".view.activitys.SpecificIrrigationActivity"
+            android:name=".view.activitys.IrrigationActivity"
             android:label="@string/title_activity_specific_irrigation"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.databinding.CardViewIrrigationBinding;
 import com.aplicaciones.destroyer.smartcrops.model.Station;
-import com.aplicaciones.destroyer.smartcrops.viewModel.IrrigationStationsViewModel;
+import com.aplicaciones.destroyer.smartcrops.viewModel.StationsViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,25 +17,27 @@ import java.util.List;
  * Created by Destroyer on 13/01/2018.
  */
 
-public class AdapterIrrigation extends RecyclerView.Adapter<AdapterIrrigation.BindingViewHolder>{
+public class AdapterStations extends RecyclerView.Adapter<AdapterStations.BindingViewHolder>{
 
-    private List<IrrigationStationsViewModel> stations;
+    private List<StationsViewModel> stations;
+    private String function;
 
-    public AdapterIrrigation(List<Station> stations) {
+    public AdapterStations(List<Station> stations, String function) {
         this.stations = new ArrayList<>();
+        this.function = function;
         for (Station station: stations) {
-            this.stations.add(new IrrigationStationsViewModel(station));
+            this.stations.add(new StationsViewModel(station));
         }
     }
 
     @Override
-    public AdapterIrrigation.BindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AdapterStations.BindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         CardViewIrrigationBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.card_view_irrigation,parent,false);
         return new BindingViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(AdapterIrrigation.BindingViewHolder holder, int position) {
+    public void onBindViewHolder(AdapterStations.BindingViewHolder holder, int position) {
         CardViewIrrigationBinding binding = holder.binding;
         binding.setStationViewModel(stations.get(position));
     }
@@ -52,6 +54,12 @@ public class AdapterIrrigation extends RecyclerView.Adapter<AdapterIrrigation.Bi
         public BindingViewHolder(CardViewIrrigationBinding binding) {
             super(binding.cardViewIrrigation);
             this.binding=binding;
+            if(function.equals("IRRIG_STATION")){
+                this.binding.imageView.setImageResource(R.drawable.irrigation_stations);
+            }else {
+                this.binding.imageView.setImageResource(R.drawable.measure_stations);
+            }
+
         }
     }
 

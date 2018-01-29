@@ -8,7 +8,8 @@ import com.aplicaciones.destroyer.smartcrops.R;
 import com.aplicaciones.destroyer.smartcrops.dataBase.DataBase;
 import com.aplicaciones.destroyer.smartcrops.dataBase.DataFireBase;
 import com.aplicaciones.destroyer.smartcrops.model.Station;
-import com.aplicaciones.destroyer.smartcrops.view.activitys.SpecificIrrigationActivity;
+import com.aplicaciones.destroyer.smartcrops.view.activitys.IrrigationActivity;
+import com.aplicaciones.destroyer.smartcrops.view.activitys.MeasureActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -96,12 +97,16 @@ public class StationsMapFragmentViewModel implements OnMapReadyCallback{
             @Override
             public boolean onMarkerClick(Marker marker) {
 
-                if(marker.getTitle().equalsIgnoreCase("IRRIG_STATION")){
-                    Station station = (Station) marker.getTag();
-                    Intent intent = new Intent(mapView.getContext(), SpecificIrrigationActivity.class);
-                    intent.putExtra("station",station);
-                    mapView.getContext().startActivity(intent);
-                }
+                Station station = (Station) marker.getTag();
+                Intent intent;
+                if(station.getFunction().equals("IRRIG_STATION"))
+                    intent = new Intent(mapView.getContext(), IrrigationActivity.class);
+                else
+                    intent = new Intent(mapView.getContext(), MeasureActivity.class);
+
+                intent.putExtra("station",station);
+                mapView.getContext().startActivity(intent);
+
 
                 return false;
             }

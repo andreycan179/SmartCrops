@@ -153,7 +153,6 @@ public class DataFireBase implements DataBase {
             while (iterator.hasNext()){
                 DataSnapshot data =iterator.next();
                 Station station = data.getValue(Station.class);
-                station.setName(data.getKey());
                 stations.add(station);
             }
             synchronized (stations){
