@@ -17,4 +17,16 @@ public class InfoIrrigationViewModel {
     public String getName(){
         return station.getName();
     }
+
+    public String getFunction(){
+        return  station.getFunction();
+    }
+
+    public double getLatitude(){
+        return  station.getLatitude();
+    }
+
+    public double getLongitude(){
+        return  station.getLongitude();
+    }
 }

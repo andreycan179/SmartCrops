@@ -1,4 +1,5 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -12,10 +13,74 @@
     android:layout_height="match_parent"
     tools:context="com.aplicaciones.destroyer.smartcrops.view.fragments.InfoIrrigationFragment">
 
-    <TextView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@{infoIrrigation.name}" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:paddingBottom="12dp"
+            android:paddingLeft="24dp"
+            android:paddingTop="12dp"
+            android:text="@{@string/station_name(infoIrrigation.name)}"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/functionText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="12dp"
+            android:background="#ededed"
+            android:paddingLeft="24dp"
+            android:paddingTop="12dp"
+            android:text="@{@string/station_function(infoIrrigation.function)}"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/nameText"
+            app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+        <TextView
+            android:id="@+id/latitudeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="12dp"
+            android:paddingLeft="24dp"
+            android:paddingTop="12dp"
+            android:text="@{@string/station_latitude(infoIrrigation.latitude)}"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/functionText"
+            app:layout_constraintTop_toBottomOf="@+id/functionText" />
+
+        <TextView
+            android:id="@+id/longitudeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ededed"
+            android:paddingBottom="12dp"
+            android:paddingLeft="24dp"
+            android:paddingTop="12dp"
+            android:text="@{@string/station_longitude(infoIrrigation.longitude)}"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/latitudeText"
+            app:layout_constraintTop_toBottomOf="@+id/latitudeText" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>
 </layout>

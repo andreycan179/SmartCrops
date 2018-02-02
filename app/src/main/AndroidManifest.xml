@@ -31,7 +31,7 @@
             android:parentActivityName=".view.activitys.LoginActivity" />
         <activity
             android:name=".view.activitys.MeasureActivity"
-            android:parentActivityName=".view.activitys.IntroActivity" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".view.activitys.StationsActivity"
             android:parentActivityName=".view.activitys.IntroActivity" />
